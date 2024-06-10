@@ -18,3 +18,13 @@ jsonwebtoken (JWT): A library for generating and validating JSON Web Tokens, whi
 Remember to replace 'your_secret_key' in auth.js with a strong, unique JWT secret for production. Store it securely as an environment variable.
 Consider adding error handling for more robust operation.
 You can extend the API to include functionalities like forgot password, user updates, etc.
+
+4: File Structure:
+
+project_name/
+  |- user.js  (User model definition using Mongoose)
+  |- app.js   (Main application entry point for server-side logic)
+  |- app.mongoose.js  (MongoDB connection and Mongoose setup)
+  |- auth.js  (API routes for user signup and login)
+  |- package.json  (List of project dependencies)
+  |- package-lock.json  (Lock file for installed package versions)
