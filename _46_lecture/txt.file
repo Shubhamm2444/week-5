@@ -1,0 +1,31 @@
+1:What is JWT?
+JWT (JSON Web Token) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. It's widely used for authentication and authorization, particularly in Single Page Applications (SPAs) due to its stateless nature.
+
+2:Structure of a JWT:
+A JWT is composed of three Base64URL encoded parts separated by periods:
+Header: Contains metadata about the token, such as the token type (usually JWT) and the signing algorithm used (e.g., HMAC SHA256).
+Payload: Carries the actual claims, which are key-value pairs containing user information (e.g., username, user ID, roles). These claims can be accessed by the server that verifies the token.
+Signature: Ensures the integrity of the header and payload. It's created by hashing them with a secret key known only to the server that issues the token.
+
+3:Benefits of JWT:
+Compact and Self-Contained: JWTs are lightweight and easy to transmit due to their JSON structure and Base64 encoding.
+Stateless Authentication: Since JWTs contain user information, the server doesn't need to maintain session information, making it more scalable and suitable for SPAs.
+Security: The digital signature ensures the token's integrity and prevents tampering.
+Flexibility: JWTs can carry various types of claims for different purposes (e.g., user information, authorization levels).
+
+4:Drawbacks of JWT:
+Limited Information: JWTs are not meant to contain large amounts of data.
+No Encryption: While signed, JWTs are not encrypted by default. Sensitive information should not be directly stored in the payload.
+Server-Side Validation Required: The server needs to verify the signature and claims in the JWT, adding complexity.
+
+5:Typical Usage of JWT:
+User Login: Upon successful login, the server verifies the user's credentials and generates a JWT containing user claims and signs it with a secret key.
+Client-Side Storage: The client (SPA) stores the JWT securely (e.g., Local Storage with HttpOnly flag).
+Authorization Headers: Subsequent requests from the client include the JWT in the Authorization header (typically with a Bearer token type prefix).
+Server-Side Verification: The server verifies the JWT's signature, validates claims (e.g., expiration time), and authorizes the request based on the extracted user information.
+
+6:Additional Considerations:
+JWT Secret Key: This key should be strong and kept confidential on the server for signing and verifying tokens.
+Expiration Time: JWTs should have a reasonable expiration time (e.g., 1 hour, 1 day) to prevent misuse of stolen tokens.
+Refresh Tokens: Consider using refresh tokens (separate tokens used to obtain new access tokens) to avoid frequent logins.
+CSRF Protection: Implement additional measures like CSRF tokens for added security.
