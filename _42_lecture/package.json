@@ -1,0 +1,16 @@
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "MongoDB User Model Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"  // Script to start the server
+  },
+  "dependencies": {
+    "mongoose": "^latest"  // Mongoose ODM for interacting with MongoDB
+  },
+  "devDependencies": {
+    "eslint": "^latest",  // Optional: Linter for code quality (consider adding)
+    "eslint-config-standard": "^latest"  // Optional: Preset for ESLint
+  }
+}
